@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #000000;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        .checkout-product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .checkout-product img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        .quantity-controls button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 0.2rem 0.5rem;
+            margin: 0 0.2rem;
+            font-size: 1rem;
+        }
+
+        .quantity-controls button:hover {
+            background-color: #555;
+        }
+
+        .quantity {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .checkout-actions {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .checkout-actions button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        
+        .checkout-form {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .checkout-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto; 
+            padding: 0 20px; 
+            position: relative;
+        }
+
+        .product {
+            flex: 0 0 auto;
+            margin: 0 10px;
+        }
+
+        .products::before,
+        .products::after {
+            content: "\2190"; 
+            font-size: 24px;
+            color: #aaa;
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .products::before {
+            left: 0;
+        }
+
+        .products::after {
+            right: 0;
+        }
+
+        .products:hover::before,
+        .products:hover::after {
+            color: #333;
+        }
+
+        body {
+            margin: 0; 
+        }
+    </style>
+    <title>Loja de Jogos - Produtos</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class='bx bx-game'></i> Loja de Jogos</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="products.html">Produtos</a></li>
+                <li class="cart-icon" onclick="showCart()">
+                    <a href="#">Carrinho <span class="cart-count" id="cartCount">0</span></a>
+                </li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <article class="product">
+                <img src="Product1.png" alt="Produto 1">
+                <h2>Produto 1</h2>
+                <p>Descrição do produto 1.</p>
+                <p>Preço: R$ 300,00</p>
+                <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
+            </article>
+
+            <article class="product">
+                <img src="product2.png" alt="Produto 2">
+                <h2>Produto 2</h2>
+                <p>Descrição do produto 2.</p>
+                <p>Preço: R$ 150,00</p>
+                <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
+            </article>
+
+            <!-- Produto 3 -->
+            <article class="product">
+                <img src="product3.png" alt="Produto 3">
+                <h2>Produto 3</h2>
+                <p>Descrição do produto 3.</p>
+                <p>Preço: R$ 200,00</p>
+                <button onclick="addToCart(3)">Adicionar ao Carrinho</button>
+            </article>
+
+            <!-- Produto 4 -->
+            <article class="product">
+                <img src="product4.png" alt="Produto 4">
+                <h2>Produto 4</h2>
+                <p>Descrição do produto 4.</p>
+                <p>Preço: R$ 250,00</p>
+                <button onclick="addToCart(4)">Adicionar ao Carrinho</button>
+            </article>
+
+            <article class="product">
+                <img src="product5.png" alt="Produto 5">
+                <h2>Produto 5</h2>
+                <p>Descrição do produto 5.</p>
+                <p>Preço: R$ 250,00</p>
+                <button onclick="addToCart(5)">Adicionar ao Carrinho</button>
+            </article>
+        </section>
+    </main>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>Seu Carrinho</h2>
+            <ul id="cartItemsList"></ul>
+            <div class="checkout-actions">
+                <h3>Informações do Comprador</h3>
+                <form id="checkoutForm" class="checkout-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="cardNumber">Número do Cartão:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required>
+
+                    <label for="expiryDate">Data de Expiração:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+
+                    <button type="button" onclick="checkout()">Finalizar Compra</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cartItems = [];
+
+        function addToCart(productId) {
+            let existingItem = cartItems.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({
+                    id: productId,
+                    name: `Produto ${productId}`,
+                    image: `product${productId}.png`,
+                    price: getProductPrice(productId),
+                    quantity: 1
+                });
+            }
+
+            updateCartCount();
+        }
+
+        function getProductPrice(productId) {
+            switch (productId) {
+                case 1:
+                    return 10.00;
+                case 2:
+                    return 15.00;
+                case 3:
+                    return 20.00;
+                case 4:
+                    return 25.00;
+                case 5:
+                    return 25.00;
+                default:
+                    return 0.00;
+            }
+        }
+
+        function showCart() {
+
+            let cartModal = document.getElementById('cartModal');
+            cartModal.style.display = 'block';
+
+            let cartItemsListElement = document.getElementById('cartItemsList');
+            cartItemsListElement.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                let listItem = document.createElement('li');
+                listItem.className = 'checkout-product';
+                listItem.innerHTML = `
+                    <div>
+                        <img src="${item.image}" alt="${item.name}">
+                        ${item.name}
+                    </div>
+                    <div class="quantity-controls">
+                        <button onclick="decreaseQuantity(${index})">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button onclick="increaseQuantity(${item.id})">+</button>
+                    </div>
+                `;
+                cartItemsListElement.appendChild(listItem);
+            });
+        }
+
+        function decreaseQuantity(index) {
+            let item = cartItems[index];
+            if (item && item.quantity > 1) {
+                item.quantity--;
+            } else {
+                cartItems.splice(index, 1);
+            }
+            showCart();
+            updateCartCount();
+        }
+
+        function closeCartModal() {
+            let cartModal = document.getElementById('cartModal');
+            cartModal.style.display = 'none';
+        }
+
+        function checkout() {
+            let totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+            let totalPrice = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+
+            let confirmation = confirm(`Deseja finalizar a compra de ${totalItems} itens por R$ ${totalPrice.toFixed(2)}?\n\nInformações do Comprador:\nNome: ${document.getElementById('name').value}\nEmail: ${document.getElementById('email').value}`);
+            
+            if (confirmation) {
+                alert('Compra realizada com sucesso!');
+
+                cartItems = [];
+                updateCartCount();
+                closeCartModal();
+            }
+        }
+
+        window.onclick = function (event) {
+            let cartModal = document.getElementById('cartModal');
+            if (event.target === cartModal) {
+                closeCartModal();
+            }
+        };
+
+        function updateCartCount() {
+            document.getElementById('cartCount').innerText = cartItems.reduce((total, item) => total + item.quantity, 0);
+        }
+
+        function increaseQuantity(productId) {
+            let item = cartItems.find(item => item.id === productId);
+            if (item) {
+                item.quantity++;
+                updateCartCount();
+                showCart();
+            }
+        }
+    </script>
+
+</body>
+</html>

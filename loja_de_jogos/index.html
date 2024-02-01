@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>GamerStore</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a class="logo"><i class='bx bx-game'></i> Loja de Jogos</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="products.html">Produtos</a></li>
+                <li class="cart-icon" onclick="showCart()">
+                    <a href="#">Carrinho <span class="cart-count" id="cartCount">0</span></a>
+                </li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Descubra a experiência definitiva de jogos conosco</h1>
+        <p>Explore nossa ampla variedade de produtos e acessórios de jogos, projetados para levar seu jogo para o próximo nível.</p>
+        <a href="products.html" class="btn">Comprar</a>
+        <a href="contact.html" class="btn">Saiba mais</a>
+    </section>
+
+    <section class="featured-products">
+        <article class="product" onclick="addToCart(1)">
+            <i class='bx bx-cube'></i>
+            <h2>Passo 1: Crie uma Conta</h2>
+            <p>Inscreva-se para ter acesso a todos os recursos.</p>
+        </article>
+
+        <article class="product" onclick="addToCart(2)">
+            <i class='bx bx-box'></i>
+            <h2>Passo 2: Navegue e Selecione</h2>
+            <p>Explore nossa ampla variedade de produtos e escolha o que mais combina com você.</p>
+        </article>
+
+        <article class="product" onclick="addToCart(3)">
+            <i class='bx bx-cart'></i>
+            <h2>Passo 3: Adicione ao Carrinho</h2>
+            <p>Adicione os itens selecionados ao seu carrinho de compras.</p>
+        </article>
+    </section>
+
+    <div id="cartModal" class="modal">
+    </div>
+
+    <script>
+        let cartItems = [];
+
+        function addToCart(productId) {
+            let existingItem = cartItems.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({
+                    id: productId,
+                    name: `Passo ${productId}`,
+                    quantity: 1
+                });
+            }
+
+            updateCartCount();
+        }
+
+        function showCart() {
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').innerText = cartItems.reduce((total, item) => total + item.quantity, 0);
+        }
+
+    </script>
+
+</body>
+</html>
