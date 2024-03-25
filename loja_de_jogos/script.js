@@ -65,5 +65,3 @@ function checkout() {
         closeCartModal();
     }
 }
-
-// ... (restante do seu código JavaScript) ...
