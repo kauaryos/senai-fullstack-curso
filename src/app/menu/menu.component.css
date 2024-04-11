@@ -1,0 +1,21 @@
+/* Estilos para .example-spacer */
+.example-spacer {
+  flex: 1 1 auto; /* Define a flexibilidade do espaço para preencher o espaço disponível */
+}
+
+/* Estilos para <span> */
+span {
+  padding: 10px; /* Adiciona preenchimento ao redor do conteúdo do <span> */
+}
+
+/* Estilos para <img> */
+img {
+  height: 50px; /* Define a altura das imagens como 50 pixels */
+  width: 50px; /* Define a largura das imagens como 50 pixels */
+}
+
+/* Estilos para <a> */
+a {
+  text-decoration: none; /* Remove a decoração de texto padrão dos links */
+  color: white; /* Define a cor do texto dos links como branco */
+}

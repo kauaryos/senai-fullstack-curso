@@ -1,0 +1,81 @@
+<main>
+    <!-- Seção do banner principal -->
+    <section id="banner-hero" class="container-fluid">
+        <!-- Carrossel de imagens -->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Item do carrossel ativo -->
+                <div class="carousel-item active">
+                    <img src="./assets/img/banner4.jpg" class="d-block w-100" style="height: 400px;" alt="Promoção de um jogo">
+                </div>
+                <!-- Outros itens do carrossel -->
+                <div class="carousel-item">
+                    <img src="./assets/img/banner2.PNG" class="d-block w-100" style="height: 400px;" alt="Promoção do mês">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/banner3.jpg" class="d-block w-100" style="height: 400px;" alt="Jogo do ano">
+                </div>
+            </div>
+            <!-- Botões de controle do carrossel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Conteúdo do banner principal -->
+        <div class="hero">
+            <h1>Descubra <br> a experiência definitiva <br> de jogos conosco <br>🔥<br></h1>
+            <p>Explore nossa ampla variedade de produtos e acessórios de jogos, projetados para levar seu jogo para o próximo nível.</p>
+        </div>
+    </section>
+<br>
+    <!-- Seção de produtos em destaque -->
+    <section class="featured-products">
+        <!-- Artigos dos produtos -->
+        <article class="product" onclick="addToCart(1)">
+            <i class='bx bx-cube'></i>
+            <h2>Passo 1: Crie uma Conta</h2>
+            <p>Inscreva-se para ter acesso a todos os recursos.</p>
+        </article>
+  
+        <article class="product" onclick="addToCart(2)">
+            <i class='bx bx-box'></i>
+            <h2>Passo 2: Navegue e Selecione</h2>
+            <p>Explore nossa ampla variedade de produtos e escolha o que mais combina com você.</p>
+        </article>
+  
+        <article class="product" onclick="addToCart(3)">
+            <i class='bx bx-cart'></i>
+            <h2>Passo 3: Adicione ao Carrinho</h2>
+            <p>Adicione os itens selecionados ao seu carrinho de compras.</p>
+        </article>
+    </section>
+  
+    <!-- Título dos Jogos em Promoção -->
+    <h2 class="text-center text-white">Jogos em Promoção</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Colunas dos jogos em promoção -->
+            <div class="col-md-4" *ngFor="let jogo of jogos">
+                <!-- Card de cada jogo -->
+                <div class="card mb-4 rounded-3 shadow-sm bg-dark text-white">
+                    <img src="{{ jogo.imagem }}" class="card-img-top" alt="{{ jogo.nome }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ jogo.nome }}</h5>
+                        <p class="card-text">{{ jogo.descricao }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">{{ jogo.preco }}</span>
+                            <button class="btn btn-sm btn-primary">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

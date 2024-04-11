@@ -1,0 +1,44 @@
+/* Estilos Globais */
+body {
+    background-color: #343a40; /* Define a cor de fundo do corpo da página */
+    color: white; /* Define a cor do texto */
+}
+
+/* Estilos da Seção de Login */
+#section-login {
+    min-height: calc(100vh - 56px); /* Altura mínima da seção de login ajustada para levar em conta o tamanho da barra de navegação */
+    display: flex; /* Define o layout da seção como flexível */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+/* Estilos dos campos de formulário */
+.form-control {
+    background-color: #495057; /* Define a cor de fundo dos campos de formulário */
+    color: white; /* Define a cor do texto nos campos de formulário */
+    border-color: #495057; /* Define a cor da borda dos campos de formulário */
+}
+
+/* Estilos dos campos de formulário quando focados */
+.form-control:focus {
+    background-color: #495057; /* Define a cor de fundo dos campos de formulário quando focados */
+    border-color: #ced4da; /* Define a cor da borda dos campos de formulário quando focados */
+    color: white; /* Define a cor do texto nos campos de formulário quando focados */
+}
+
+/* Estilos dos botões primários */
+.btn-primary {
+    background-color: #007bff; /* Define a cor de fundo dos botões primários */
+    border-color: #007bff; /* Define a cor da borda dos botões primários */
+}
+
+/* Estilos dos botões primários quando hover */
+.btn-primary:hover {
+    background-color: #0056b3; /* Define a cor de fundo dos botões primários quando hover */
+    border-color: #0056b3; /* Define a cor da borda dos botões primários quando hover */
+}
+
+/* Estilos dos botões primários quando focados */
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.5); /* Define uma sombra ao redor do botão primário quando focado */
+}
