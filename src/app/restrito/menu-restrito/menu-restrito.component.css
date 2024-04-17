@@ -1,0 +1,33 @@
+.mat-toolbar {
+    background-color: #333;
+    color: #fff;
+}
+
+.mat-toolbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-toolbar-row span {
+    margin: 0 10px;
+}
+
+.mat-toolbar-row a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.mat-toolbar-row a:hover {
+    color: #007bff;
+}
+
+.mat-icon-button {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.mat-icon-button:hover {
+    color: #007bff;
+}

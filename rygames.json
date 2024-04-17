@@ -1,0 +1,25 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "produto": "Cyberpunk 2077",
+      "descricao": "Entre em Night City, uma metrópole obcecada pelo poder, glamour e biomodificações. Você joga como V, um mercenário fora da lei atrás de um implante único que carrega a chave da imortalidade. Personalize seu personagem e mergulhe em uma narrativa épica cheia de escolhas e consequências.",
+      "foto": "jogo1.PNG",
+      "preco": 199.90
+    },
+    {
+      "id": 2,
+      "produto": "Star Wars Jedi: Fallen Order",
+      "descricao": "Assuma o papel de Cal Kestis, um jovem Padawan que escapou por pouco do expurgo da Ordem 66 após os eventos de Star Wars: Episódio III - A Vingança dos Sith. Embarque em uma jornada épica para reconstruir a Ordem Jedi enquanto enfrenta o Império e seus letais Inquisidores.",
+      "foto": "jogo2.PNG",
+      "preco": 179.90
+    },
+    {
+      "id": 3,
+      "produto": "LEGO The Hobbit",
+      "descricao": "Reviva as aventuras épicas de Bilbo Bolseiro, Gandalf, Thorin Escudo-de-Carvalho e a Companhia dos Anões enquanto eles viajam pela Terra-média para recuperar o Reino de Erebor. Explore locais icônicos, resolva quebra-cabeças e enfrente perigosas criaturas neste jogo LEGO repleto de humor e aventura.",
+      "foto": "jogo3.PNG",
+      "preco": 99.90
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Game</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+<main>
+    <h1>Cadastrar produto</h1>
+    <section id="section-cadastro">
+        <form>
+            <label for="produto">Nome do Produto</label>
+            <input type="text" class="form-control" name="produto" [(ngModel)]="produto.produto">
+            
+            <label for="descricao">Descrição</label>
+            <input type="text" class="form-control" name="descricao" [(ngModel)]="produto.descricao">
+            
+            <label for="foto">Foto</label>
+            <input type="text" class="form-control" name="foto" [(ngModel)]="produto.foto">
+            
+            <label for="preco">Preço</label>
+            <input type="number" class="form-control" name="preco" [(ngModel)]="produto.preco">
+            
+            <button type="button" class="btn btn-primary mb-3" (click)="cadastrar()">Cadastrar</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

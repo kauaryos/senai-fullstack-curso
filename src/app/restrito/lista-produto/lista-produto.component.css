@@ -1,0 +1,37 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte semelhante ao Windows */
+    color: #fff; /* Cor padrão do texto */
+    background-color: #2a2a2a; /* Fundo escuro */
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #555; /* Borda escura */
+}
+
+.table th {
+    background-color: #333; /* Fundo mais escuro para o cabeçalho */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #333; /* Fundo mais escuro para linhas pares */
+}
+
+.table tbody tr:hover {
+    background-color: #444; /* Fundo escuro ao passar o mouse */
+}
+
+.table tbody td img {
+    max-width: 80px; /* Largura máxima ajustada para imagens */
+    max-height: 80px; /* Altura máxima ajustada para imagens */
+    object-fit: cover;
+    border-radius: 6px; /* Cantos ligeiramente arredondados para imagens */
+}
+
+.table tfoot {
+    margin-top: 20px; /* Adiciona margem ao topo do rodapé da tabela */
+}
